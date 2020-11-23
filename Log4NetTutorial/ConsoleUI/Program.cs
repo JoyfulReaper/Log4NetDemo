@@ -53,6 +53,16 @@ namespace ConsoleUI
                 log.Error("Devloper: we tried to divide by zero again", ex);
             }
 
+            Counter j = new Counter();
+
+            log4net.GlobalContext.Properties["counter"] = j;
+
+            for (j.LoopCounter = 0; j.LoopCounter < 5; j.LoopCounter++)
+            {
+                //log4net.GlobalContext.Properties["counter"] = i;
+                log.Fatal("This is a fatal error in the proccess!");
+            }
+
             log.Fatal("Maintenance: The water pump exploded!");
 
             Console.ReadLine();
