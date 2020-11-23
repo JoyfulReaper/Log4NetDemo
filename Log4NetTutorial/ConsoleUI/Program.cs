@@ -3,6 +3,7 @@ using log4net.Config;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Data.SqlClient;
 
 //[assembly: log4net.Config.XmlConfigurator(Watch = true)] //Use XmlConfigurator and update if it changes. Only needed once, put at start point ( Main() ). Outside of namespace
 
@@ -16,6 +17,7 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {
+            log4net.Util.LogLog.InternalDebugging = true;
             var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
             XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
 
